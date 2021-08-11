@@ -1,0 +1,110 @@
+<?xml version = "1.0"?>
+<magasin>
+   <casier>
+      <nom>Casier 1</nom>
+      <tiroir>
+         <nom>Tiroir 1</nom>
+         <sub_tiroir>
+            <nom>Tiroir 1-1 et 1-2</nom>
+            <type>type here</type>
+            <table>
+               <nom>souris</nom>
+                  <colonne>id</colonne>
+                  <colonne>marque</colonne>
+                  <colonne>prix</colonne>
+            </table>
+         </sub_tiroir>
+         <sub_tiroir>
+            <nom>Tiroir 1-3 et 1-4</nom>
+               <colonnes>
+                  <colonne>id</colonne>
+                  <colonne>stockage</colonne>
+               </colonnes>
+         </sub_tiroir>
+      </tiroir>
+      <tiroir>
+         <nom>Tiroir 2</nom>
+         <sub_tiroir>
+            <nom>Tiroir 2</nom>
+               <colonnes>
+                  <colonne>id</colonne>
+                  <colonne>quantite</colonne>
+               </colonnes>
+         </sub_tiroir>
+      </tiroir>
+            <tiroir>
+         <nom>Tiroir 45</nom>
+         <sub_tiroir>
+            <nom>Tiroir 1-1 et 1-2</nom>
+               <colonne>id</colonne>
+               <colonne>nom</colonne>
+               <colonne>age</colonne>
+         </sub_tiroir>
+         <sub_tiroir>
+            <nom>Tiroir 1-3 et 1-4</nom>
+               <colonnes>
+                  <colonne>id</colonne>
+                  <colonne>stockage</colonne>
+               </colonnes>
+         </sub_tiroir>
+      </tiroir>
+   </casier>
+   <casier>
+      <nom>Casier 2</nom>
+   </casier>
+   <casier>
+      <nom>Casier 3</nom>
+   </casier>
+   <casier>
+      <nom>Casier 4</nom>
+   </casier>
+   <casier>
+      <nom>Casier 5</nom>
+   </casier>
+   <casier>
+      <nom>Casier 6</nom>
+   </casier>
+   <casier>
+      <nom>Casier 7</nom>
+   </casier>
+   <casier>
+      <nom>Casier 10</nom>
+   </casier>
+   <casier>
+      <nom>Casier 9</nom>
+      <tiroir>
+         <nom>Tiroir 1</nom>
+         <sub_tiroir>
+            <nom>Tiroir 1-1 et 1-2</nom>
+               <colonne>id</colonne>
+               <colonne>nom</colonne>
+               <colonne>age</colonne>
+         </sub_tiroir>
+         <sub_tiroir>
+            <nom>Tiroir 1-3 et 1-4</nom>
+               <colonnes>
+                  <colonne>id</colonne>
+                  <colonne>stockage</colonne>
+               </colonnes>
+         </sub_tiroir>
+      </tiroir>
+   </casier>
+   <casier>
+      <nom>Casier 10</nom>
+      <tiroir>
+         <nom>Tiroir 1</nom>
+         <sub_tiroir>
+            <nom>Tiroir 1-1 et 1-2</nom>
+            <type>Les circuits intégrés TL</type>
+            <table>
+               <nom>souris</nom>
+               <colonnes>
+                  <colonne>id</colonne>
+                  <colonne>marque</colonne>
+                  <colonne>prix</colonne>
+               </colonnes>
+            </table>
+         </sub_tiroir>
+      </tiroir>
+   </casier>
+</magasin>
