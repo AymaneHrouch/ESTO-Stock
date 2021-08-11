@@ -124,7 +124,7 @@ public class Sinscrire {
 							+ ")";
 					int res = DB.executeUpdate(sql);
 					if(res == -1) return;
-					Util.afficherInfo("Vous avez inscrivez par succees, un modérateur va vérifier et valider");
+					Util.afficherInfo("Vous avez inscrive avec succees, un moderateur va verifier votre demande et valider");
 					annuler();
 				}
 			}

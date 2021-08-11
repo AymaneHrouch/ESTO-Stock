@@ -59,7 +59,7 @@ public class SeConnecter {
         		if(loginText.equals(rs.getString(2)) && pwdText.equals(rs.getString(3))) {
                     //Util.afficherInfo("Connecté avec succés!");
         			if(Integer.parseInt(rs.getString(5)) == 1) {
-        				frame.setVisible(false);
+        				frame.dispose();
         				int idUser = Integer.parseInt(rs.getString(1));
         				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         				DocumentBuilder builder = factory.newDocumentBuilder();
@@ -69,7 +69,7 @@ public class SeConnecter {
         				window.afficher();        				
         			}
         			else {
-        				Util.afficherInfo("Vous devez attendre qu'un modérateur vous accepte.");
+        				Util.afficherInfo("Ce compte n'est pas encore valide.");
         			}
         			return;
         		}
@@ -96,7 +96,7 @@ public class SeConnecter {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("ESTO Magasin | Se Connecter");
-		frame.setBounds(100, 100, 435, 213);
+		frame.setBounds(100, 100, 498, 242);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new MigLayout("", "[][][grow]", "[][][][][][][][][][]"));
 		
@@ -150,7 +150,7 @@ public class SeConnecter {
 		lblNewLabel_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				frame.setVisible(false);
+				frame.dispose();
 				new Sinscrire().frmSinscrire.setVisible(true);
 			}
 		});

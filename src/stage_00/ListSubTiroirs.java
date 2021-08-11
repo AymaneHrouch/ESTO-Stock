@@ -15,6 +15,7 @@ public class ListSubTiroirs extends List {
 	@Override
 	public void btnClicked(NodeList Node, int index, String nom, JFrame previousFrame) {
 		this.setVisible(false);
+		try {
 		Element nxtNode = (Element) Node.item(index);
 		Element table = (Element) nxtNode.getElementsByTagName("table").item(0);
 		NodeList colonnes = (NodeList) table.getElementsByTagName("colonne");
@@ -24,5 +25,10 @@ public class ListSubTiroirs extends List {
 		}
 		String type = nxtNode.getElementsByTagName("type").item(0).getTextContent();
 		new Tableau("souris", arr, this.emplacement + "/" + nom, previousFrame, this.idUser, type).afficher();
+		} catch(NullPointerException ex) {
+			Util.afficherErreur("Erreur lors de l'analyse de fichier XML, veuillez verifier son structure.");
+			Util.afficherInfo("Le logiciel va s'arreter");
+			System.exit(1);
+		}
 	}
 }

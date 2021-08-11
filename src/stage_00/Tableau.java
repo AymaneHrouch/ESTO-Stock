@@ -39,9 +39,6 @@ import javax.swing.table.TableRowSorter;
 import com.mysql.cj.protocol.a.result.ResultsetRowsStatic;
 import com.mysql.cj.xdevapi.Result;
 
-import interfaceGraphique.DB;
-import interfaceGraphique.Util;
-
 public class Tableau extends Frame {
 	String tableName;
 	String[] th;
@@ -70,9 +67,11 @@ public class Tableau extends Frame {
 	}
 	
 	
-    
 	public void afficher() {
 		this.setTitle("ESTO Magasin | " + emplacement);
+		
+		tb.setFont(new Font("Tahoma", Font.PLAIN, 16));
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel label = new JLabel("Type: " + type);
 		label.setFont(new Font("Tahoma", Font.BOLD, 25));
@@ -142,7 +141,7 @@ public class Tableau extends Frame {
         
         tb.setCellSelectionEnabled(false);
         String colonnes = String.join(", ", th);   
-        chargerTableau(th.length, "SELECT " + colonnes + " FROM " + tableName);
+        chargerTableau(th.length, "SELECT " + colonnes + " FROM " + tableName + " ORDER BY id;");
         
         createRetourBtn();
         
@@ -173,7 +172,20 @@ public class Tableau extends Frame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new AjouterModifier(model, tableName, th);
+				new Ajouter(model, tableName, th).afficher();
+			}
+		});
+		
+		btnModifier.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int row = getRow(tfId.getText());
+				if(row == -1) {
+					Util.afficherInfo("Id Inexistant");
+					return;
+				}
+				new Modifier(model, tableName, th, row).afficher();
 			}
 		});
 	}
