@@ -4,49 +4,49 @@
       <nom>Casier 1</nom>
       <tiroir>
          <nom>Tiroir 1</nom>
-         <sub_tiroir>
+         <sous_tiroir>
             <nom>Tiroir 1-1 et 1-2</nom>
             <type>type here</type>
             <table>
                <nom>souris</nom>
                   <colonne>id</colonne>
                   <colonne>marque</colonne>
-                  <colonne>prix</colonne>
+                  <colonne type="nombre">prix</colonne>
             </table>
-         </sub_tiroir>
-         <sub_tiroir>
+         </sous_tiroir>
+         <sous_tiroir>
             <nom>Tiroir 1-3 et 1-4</nom>
                <colonnes>
                   <colonne>id</colonne>
                   <colonne>stockage</colonne>
                </colonnes>
-         </sub_tiroir>
+         </sous_tiroir>
       </tiroir>
       <tiroir>
          <nom>Tiroir 2</nom>
-         <sub_tiroir>
+         <sous_tiroir>
             <nom>Tiroir 2</nom>
                <colonnes>
                   <colonne>id</colonne>
                   <colonne>quantite</colonne>
                </colonnes>
-         </sub_tiroir>
+         </sous_tiroir>
       </tiroir>
             <tiroir>
          <nom>Tiroir 45</nom>
-         <sub_tiroir>
+         <sous_tiroir>
             <nom>Tiroir 1-1 et 1-2</nom>
                <colonne>id</colonne>
                <colonne>nom</colonne>
                <colonne>age</colonne>
-         </sub_tiroir>
-         <sub_tiroir>
+         </sous_tiroir>
+         <sous_tiroir>
             <nom>Tiroir 1-3 et 1-4</nom>
                <colonnes>
                   <colonne>id</colonne>
                   <colonne>stockage</colonne>
                </colonnes>
-         </sub_tiroir>
+         </sous_tiroir>
       </tiroir>
    </casier>
    <casier>
@@ -63,48 +63,195 @@
    </casier>
    <casier>
       <nom>Casier 6</nom>
+      <tiroir>
+         <nom></nom>
+         <sous_tiroir>
+            <nom></nom>
+            <type>Les circuits intégrés 74XX</type>
+            <table>
+               <nom>casier6</nom>
+               <colonnes>
+                  <colonne>id</colonne>
+                  <colonne>N</colonne>
+                  <colonne>CIRCUIT</colonne>
+                  <colonne>TYPE</colonne>
+                  <colonne>N_D_P</colonne>
+                  <colonne>PCK</colonne>
+                  <colonne>VCC</colonne>
+                  <colonne>VIL_MAX_0</colonne>
+                  <colonne>VIH_MIN_1</colonne>
+               </colonnes>
+            </table>
+         </sous_tiroir>
+      </tiroir>
    </casier>
    <casier>
       <nom>Casier 7</nom>
+      <tiroir>
+         <nom>Tiroir N 1 et 2</nom>
+         <sous_tiroir>
+            <nom></nom>
+            <type></type>
+            <table>
+               <nom>casier_7_tiroirs_1_2</nom>
+               <colonnes>
+                  <colonne>id</colonne>
+                  <colonne>N</colonne>
+                  <colonne>Nom</colonne>
+               </colonnes>
+            </table>
+         </sous_tiroir>
+      </tiroir>
+      <tiroir>
+         <nom>Tiroir N 3,4,5,6</nom>
+         <sous_tiroir>
+            <nom></nom>
+            <type></type>
+            <table>
+               <nom>casier_7_tiroirs_3_4_5_6</nom>
+               <colonnes>
+                  <colonne>id</colonne>
+                  <colonne>N</colonne>
+                  <colonne>Circuit</colonne>
+                  <colonne>TYPE</colonne>
+                  <colonne>N_D_P</colonne>
+                  <colonne>PCK</colonne>
+                  <colonne>Vdd</colonne>
+               </colonnes>
+            </table>
+         </sous_tiroir>
+      </tiroir>
+      <tiroir>
+         <nom>Tiroir N 7</nom>
+         <sous_tiroir>
+            <nom>Tiroir N 7-1</nom>
+            <type>NE et les cicruits intégrés TL</type>
+            <table>
+               <nom>casier_7_tiroirs_7et8_n_7_1et8_3</nom>
+               <colonnes>
+                  <colonne>id</colonne>
+                  <colonne>N</colonne>
+                  <colonne>Circuit</colonne>
+                  <colonne>Type</colonne>
+                  <colonne>N_de_pine</colonne>
+                  <colonne>PCK</colonne>
+                  <colonne>Vcc</colonne>
+                  <colonne>Icc</colonne>
+               </colonnes>
+            </table>
+         </sous_tiroir>
+         <sous_tiroir>
+            <nom>Tiroir N 7-2 et 7-4</nom>
+            <type>ITL-4N</type>
+            <table>
+               <nom>casier_7_tiroir_7_n_4_2</nom>
+               <colonnes>
+                  <colonne>id</colonne>
+                  <colonne>N</colonne>
+                  <colonne>Circuit</colonne>
+                  <colonne>Type</colonne>
+                  <colonne>N_de_pine</colonne>
+                  <colonne>PCK</colonne>
+                  <colonne>Vcc</colonne>
+                  <colonne>Ic</colonne>
+               </colonnes>
+            </table>
+         </sous_tiroir>
+         <sous_tiroir>
+            <nom>Tiroir N 7-3</nom>
+            <type>UA</type>
+            <table>
+               <nom>casier_7_tiroir_7_n_3</nom>
+               <colonnes>
+                  <colonne>id</colonne>
+                  <colonne>N</colonne>
+                  <colonne>Circuit</colonne>
+                  <colonne>Type</colonne>
+                  <colonne>N_de_pine</colonne>
+                  <colonne>PCK</colonne>
+                  <colonne>Vcc</colonne>
+               </colonnes>
+            </table>
+         </sous_tiroir>
+      </tiroir>
+      <tiroir>
+         <nom>Tiroir 8</nom>
+         <sous_tiroir>
+            <nom>Tiroir N 8-1</nom>
+            <type>Les circuits intégrés LF</type>
+            <table>
+               <nom>casier_7_tiroir_8_n_1</nom>
+               <colonnes>
+                  <colonne>id</colonne>
+                  <colonne>N</colonne>
+                  <colonne>Circuit</colonne>
+                  <colonne>Type</colonne>
+                  <colonne>PCK</colonne>
+                  <colonne>Vcc</colonne>
+                  <colonne>VIO</colonne>
+                  <colonne>Lio</colonne>
+               </colonnes>
+            </table>
+         </sous_tiroir>
+         <sous_tiroir>
+            <nom>Tiroir N 8-2</nom>
+            <type>Les circuits intégrés EF</type>
+            <table>
+               <nom>casier_7_tiroir_8_n_2</nom>
+               <colonnes>
+                  <colonne>id</colonne>
+                  <colonne>N</colonne>
+                  <colonne>Circuit</colonne>
+                  <colonne>Type</colonne>
+                  <colonne>PCK</colonne>
+                  <colonne>Vcc</colonne>
+                  <colonne>VIL_Max_0</colonne>
+                  <colonne>VIH_Min_1</colonne>
+               </colonnes>
+            </table>
+         </sous_tiroir>
+         <sous_tiroir>
+            <nom>Tiroir N 8-3</nom>
+            <type>NE et les cicruits intégrés TL</type>
+            <table>
+               <nom>casier_7_tiroirs_7et8_n_7_1et8_3</nom>
+               <colonnes>
+                  <colonne>id</colonne>
+                  <colonne>N</colonne>
+                  <colonne>Circuit</colonne>
+                  <colonne>Type</colonne>
+                  <colonne>N_de_pine</colonne>
+                  <colonne>PCK</colonne>
+                  <colonne>Vcc</colonne>
+                  <colonne>Icc</colonne>
+               </colonnes>
+            </table>
+         </sous_tiroir>
+      </tiroir>
    </casier>
    <casier>
-      <nom>Casier 10</nom>
+      <nom>Casier 8</nom>
    </casier>
    <casier>
       <nom>Casier 9</nom>
+   </casier>
+   <casier>
+      <nom>Casier 10</nom>
       <tiroir>
          <nom>Tiroir 1</nom>
-         <sub_tiroir>
+         <sous_tiroir>
             <nom>Tiroir 1-1 et 1-2</nom>
                <colonne>id</colonne>
                <colonne>nom</colonne>
                <colonne>age</colonne>
-         </sub_tiroir>
-         <sub_tiroir>
+         </sous_tiroir>
+         <sous_tiroir>
             <nom>Tiroir 1-3 et 1-4</nom>
                <colonnes>
                   <colonne>id</colonne>
                   <colonne>stockage</colonne>
                </colonnes>
-         </sub_tiroir>
-      </tiroir>
-   </casier>
-   <casier>
-      <nom>Casier 10</nom>
-      <tiroir>
-         <nom>Tiroir 1</nom>
-         <sub_tiroir>
-            <nom>Tiroir 1-1 et 1-2</nom>
-            <type>Les circuits intégrés TL</type>
-            <table>
-               <nom>souris</nom>
-               <colonnes>
-                  <colonne>id</colonne>
-                  <colonne>marque</colonne>
-                  <colonne>prix</colonne>
-               </colonnes>
-            </table>
-         </sub_tiroir>
+         </sous_tiroir>
       </tiroir>
    </casier>
 </magasin>

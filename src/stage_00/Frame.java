@@ -17,7 +17,7 @@ public class Frame extends JFrame {
 	JPanel panel2 = new JPanel();
 
 	Frame() {
-		
+		super();
 	}
 	
 	public Frame(int idUser) {
@@ -62,7 +62,6 @@ public class Frame extends JFrame {
 				return true;
 			} else return false;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}

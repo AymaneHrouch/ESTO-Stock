@@ -1,7 +1,5 @@
 package stage_00;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
@@ -81,12 +79,15 @@ public class SeConnecter {
             System.exit(1);
         } catch (SAXException e) {
 			// TODO Auto-generated catch block
+			Util.afficherErreur(e.getMessage());
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			Util.afficherErreur(e.getMessage());
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
+			Util.afficherErreur(e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -105,11 +106,12 @@ public class SeConnecter {
 		lblNewLabel_6.setFont(new Font("Constantia", Font.PLAIN, 30));
 		frame.getContentPane().add(lblNewLabel_6, "cell 0 0 3 2");
 		
-		JLabel lblEmail = new JLabel("Email");
+		JLabel lblEmail = new JLabel("Nom d'Utilisateur");
 		lblEmail.setFont(new Font("Caladea", Font.BOLD, 14));
 		frame.getContentPane().add(lblEmail, "cell 0 2");
 		
 		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		textField.addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == 10) {
@@ -125,6 +127,7 @@ public class SeConnecter {
 		frame.getContentPane().add(lblMotDePasse, "cell 0 4");
 		
 		passwordField = new JPasswordField();
+		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		passwordField.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {

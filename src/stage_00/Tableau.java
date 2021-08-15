@@ -1,11 +1,9 @@
 package stage_00;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -19,25 +17,13 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.RowFilter;
-import javax.swing.SwingUtilities;
-import javax.swing.event.PopupMenuEvent;
-import javax.swing.event.PopupMenuListener;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-
-import com.mysql.cj.protocol.a.result.ResultsetRowsStatic;
-import com.mysql.cj.xdevapi.Result;
 
 public class Tableau extends Frame {
 	String tableName;
@@ -90,7 +76,7 @@ public class Tableau extends Frame {
 			panelCRUD.setMaximumSize(new Dimension(400,30));
 			ecouterBoutons();
 			
-			JLabel lblId = new JLabel("ID");
+			JLabel lblId = new JLabel(th[0]);
 			tfId.setPreferredSize(new Dimension(40,30));
 			panelCRUD.add(btnAjouter);
 			panelCRUD.add(btnModifier);
@@ -141,7 +127,7 @@ public class Tableau extends Frame {
         
         tb.setCellSelectionEnabled(false);
         String colonnes = String.join(", ", th);   
-        chargerTableau(th.length, "SELECT " + colonnes + " FROM " + tableName + " ORDER BY id;");
+        chargerTableau(th.length, "SELECT " + colonnes + " FROM " + tableName + " ORDER BY " + th[0] + ";");
         
         createRetourBtn();
         
@@ -155,10 +141,10 @@ public class Tableau extends Frame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {				
 				String id = tfId.getText();
-				String sql = "DELETE FROM " + tableName + " WHERE id=" + tfId.getText();
+				String sql = "DELETE FROM " + tableName + " WHERE " + th[0] + "=" + tfId.getText();
 				int y = getRow(id);
 				if(y == -1) {
-					Util.afficherInfo("Id Inexistant");
+					Util.afficherInfo(th[0] + " Inexistant");
 					return;
 				}
 				if(DB.executeUpdate(sql) == -1) return;
@@ -182,7 +168,7 @@ public class Tableau extends Frame {
 			public void actionPerformed(ActionEvent e) {
 				int row = getRow(tfId.getText());
 				if(row == -1) {
-					Util.afficherInfo("Id Inexistant");
+					Util.afficherInfo(th[0] + " Inexistant");
 					return;
 				}
 				new Modifier(model, tableName, th, row).afficher();

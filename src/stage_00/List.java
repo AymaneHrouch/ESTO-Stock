@@ -2,7 +2,6 @@ package stage_00;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Insets;
@@ -16,24 +15,15 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public abstract class List extends Frame {
-	Element e;
-	String emplacement;
-	String tagName;
-	JPanel panel1 = new JPanel();
-	JMenuBar barreMenu = new JMenuBar();
-	JButton deconnexion = new JButton();
-	public abstract void btnClicked(NodeList Node, int index, String nom, JFrame previousFrame);
-
 	public List(Element e, String titre, String tagName, int idUser) {
 		super(idUser);
 		this.e = e;
@@ -48,14 +38,21 @@ public abstract class List extends Frame {
 		this.tagName = tagName;
 	}
 	
-
 	public void afficher() {
-		NodeList parentNode = e.getElementsByTagName(tagName);
+		parentNode = e.getElementsByTagName(tagName);
+		
+		if(parentNode.getLength() == 0) {
+			Util.afficherErreur("Erreur lors de l'analyse de fichier XML\n"
+					+ "Une balise <" + tagName + "> manquante.\n"
+							+ "emplacement: " + this.emplacement);
+			return;
+		}
 		
 		// S'il n y a qu'une seule casier/tiroir c'est pas la peine d'afficher la liste
 		if(parentNode.getLength() == 1) {
 			Element element = (Element) parentNode.item(0);
-			String nom = element.getElementsByTagName("nom").item(0).getTextContent();
+			Node node = element.getElementsByTagName("nom").item(0);
+			String nom = Util.getTextContent(node);
 			btnClicked(parentNode, 0, nom, this.prevFrame);
 			return;
 		}
@@ -91,9 +88,8 @@ public abstract class List extends Frame {
 		this.setJMenuBar(barreMenu);
 				
 
-		JLabel name = new JLabel();
 		name.setText("Bienvenue " + getNomUtilisateur());
-		JLabel titreLabel = new JLabel(emplacement);
+		titreLabel = new JLabel(emplacement);
 		name.setFont(new Font("Tahoma", Font.BOLD, 15));
 		titreLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		titreLabel.setAlignmentX(LEFT_ALIGNMENT);;
@@ -117,8 +113,11 @@ public abstract class List extends Frame {
 		
 		for(int i = 0; i < parentNode.getLength(); i++) {
 			JButton btn = new JButton();
+			btn.setFont(new Font("Tahoma", Font.PLAIN, 16));
 			Element element = (Element) parentNode.item(i);
-			String nom = element.getElementsByTagName("nom").item(0).getTextContent();
+			String nom;
+			Node node = element.getElementsByTagName("nom").item(0);
+			nom = Util.getTextContent(node);
 			btn.setText(nom);
 			panel1.add(btn);
 			final int index = i;
@@ -132,12 +131,12 @@ public abstract class List extends Frame {
 			});
 		}
 		this.getContentPane().setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
-		int width = 700;
-		int height = 358;
+		int width = 800;
+		int height = 497;
 		int x = 100;
 		int y = 100;
 		if(parentNode.getLength() > 10) {
-			width = 1200;
+			width = 1300;
 			height = 745;
 			x = y = 0;
 			panel1.setLayout(new GridLayout(5, 5, 30, 30));
@@ -168,4 +167,19 @@ public abstract class List extends Frame {
 			return "";
 		}
 	}
+	
+	
+	Element e;
+	String emplacement;
+	String tagName;
+	
+	JPanel panel1 = new JPanel();
+	JMenuBar barreMenu = new JMenuBar();
+	JButton deconnexion = new JButton();
+	JLabel titreLabel;
+	NodeList parentNode;
+	JLabel name = new JLabel();
+
+	public abstract void btnClicked(NodeList Node, int index, String nom, JFrame previousFrame);
+
 }

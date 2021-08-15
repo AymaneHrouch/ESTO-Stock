@@ -3,14 +3,12 @@ package stage_00;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.sql.ResultSet;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -21,29 +19,8 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import interfaceGraphique.DB;
-import interfaceGraphique.Util;
-
 public abstract class AjouterModifier extends JFrame {
-	DefaultTableModel model;
-	String tableName;
-	String[] th;
-	
-	String requete;
-	
-	JTextField jTextFields[];
-	String strLabel;
-	int forStart;
-	
-	JPanel panel = new JPanel();
-	JLabel label = new JLabel();
-	JButton btnAjouterModifier = new JButton();
-	JButton btnAnnuler = new JButton("Cancel");
-	
-	public abstract void btnClicked();
-	public abstract void remplireTextFields();
 
-	
 	public AjouterModifier(DefaultTableModel model, String tableName, String[] th) {
 		this.model = model;
 		this.tableName = tableName;
@@ -52,15 +29,18 @@ public abstract class AjouterModifier extends JFrame {
 	
 	public void afficher() {
 		ecouterBoutons();
-		label.setText(strLabel);
-		btnAjouterModifier.setText(strLabel);
 		
+		label.setText(strLabel);
 		label.setFont(new Font("Tahoma", Font.CENTER_BASELINE, 20));
 		panel.add(label);
+		
+		btnAjouterModifier.setText(strLabel);
+
 		panel.setMaximumSize(new Dimension(350,40));
 		this.add(panel);
 		
 		jTextFields = new JTextField[th.length - forStart];
+		//forStart is 0 for Modifier because we need to display the "id", for Ajouter it's 1
 		for(int i=forStart; i<th.length; i++) {
 			JPanel panel1 = new JPanel();
 			JLabel label1 = new JLabel(th[i]);
@@ -116,6 +96,7 @@ public abstract class AjouterModifier extends JFrame {
 		this.dispose();
 	}
 	
+	// get values from textfields
 	public String[] getValues() {
 		String values[] = new String[jTextFields.length];
 		for(int i=0; i<jTextFields.length; i++) {
@@ -123,4 +104,22 @@ public abstract class AjouterModifier extends JFrame {
 		}
 		return values;
 	}
+	
+	DefaultTableModel model;
+	String tableName;
+	String[] th;
+	
+	String requete;
+	
+	JTextField jTextFields[];
+	String strLabel;
+	int forStart;
+	
+	JPanel panel = new JPanel();
+	JLabel label = new JLabel();
+	JButton btnAjouterModifier = new JButton();
+	JButton btnAnnuler = new JButton("Cancel");
+	
+	public abstract void btnClicked();
+	public abstract void remplireTextFields();
 }

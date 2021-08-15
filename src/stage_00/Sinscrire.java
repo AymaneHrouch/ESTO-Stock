@@ -59,7 +59,7 @@ public class Sinscrire {
 		lblNewLabel_1.setFont(new Font("Caladea", Font.BOLD, 14));
 		frmSinscrire.getContentPane().add(lblNewLabel_1, "cell 0 2,grow");
 		
-		JLabel lblNewLabel_2 = new JLabel("Email");
+		JLabel lblNewLabel_2 = new JLabel("Nom d'Utilisateur");
 		lblNewLabel_2.setFont(new Font("Caladea", Font.BOLD, 14));
 		frmSinscrire.getContentPane().add(lblNewLabel_2, "flowy,cell 0 3,grow");
 		
@@ -116,15 +116,15 @@ public class Sinscrire {
 					return;
 				}
 				else {
-					sql = "INSERT INTO utilisateurs(prenom, nom, email, mdp) VALUES('"
-							+ prenom + "','"
-							+ nom + "','"
-							+ email + "','"
-							+ mdp + "'"
+					sql = "INSERT INTO utilisateurs(prenom, nom, email, mdp) VALUES("
+							+ "'" + prenom + "',"
+							+ "'" + nom + "',"
+							+ "'" + email + "',"
+							+ "'" + mdp + "'"
 							+ ")";
 					int res = DB.executeUpdate(sql);
 					if(res == -1) return;
-					Util.afficherInfo("Vous avez inscrive avec succees, un moderateur va verifier votre demande et valider");
+					Util.afficherInfo("Vous avez ete inscrit avec succees, un moderateur va verifier votre demande et la valider.");
 					annuler();
 				}
 			}

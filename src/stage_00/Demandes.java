@@ -2,7 +2,6 @@ package stage_00;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -22,16 +21,11 @@ public class Demandes extends JFrame {
 	public Demandes() {
 		this.setTitle("ESTO Magasin | Les Demandes");
 		
-		JPanel panel = new JPanel();
-		JLabel labelTitle = new JLabel("Les Demandes");
-		
 		labelTitle.setFont(new Font("Tahoma", Font.BOLD, 20));
 		panel.add(labelTitle);
 		panel.setMaximumSize(new Dimension(300, 200));
 		this.add(panel);
 		
-		JScrollPane sp = new JScrollPane();
-		JPanel mainPanel = new JPanel();
 		ResultSet rs = DB.executeQuery("SELECT id, prenom, nom FROM utilisateurs WHERE valide!=1");
 		try {
 			while(rs.next()) {
@@ -68,4 +62,9 @@ public class Demandes extends JFrame {
 		this.setSize(350,563);
 		this.setVisible(true);
 	}
+	
+	JPanel panel = new JPanel();
+	JScrollPane sp = new JScrollPane();
+	JPanel mainPanel = new JPanel();
+	JLabel labelTitle = new JLabel("Les Demandes");
 }

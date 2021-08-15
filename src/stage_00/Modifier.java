@@ -20,13 +20,12 @@ public class Modifier extends AjouterModifier {
 		for(int i=1; i<values.length; i++) {
 			sql += th[i] + "='" + values[i] + "'";
 			if(i<values.length-1) {
-				sql += ", "; // pour éviter (UPDATE tableName column=1, WHERE condition)
+				sql += ", "; // pour éviter (UPDATE tableName SET column=1, WHERE condition)
 			} else {
 				sql += " ";
 			}
 		}
-		sql += "WHERE id=" + values[0];
-		Util.afficherInfo(sql);
+		sql += "WHERE " + th[0] + "=" + values[0];
 		if(DB.executeUpdate(sql) == -1) return;
 		modifierLigne(values);
 	}

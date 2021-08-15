@@ -1,14 +1,11 @@
 package stage_00;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.util.Arrays;
-
 import javax.swing.table.DefaultTableModel;
 
 public class Ajouter extends AjouterModifier {
-	String requete = "SELECT * FROM " + tableName + " ORDER BY id DESC LIMIT 1";
+	String requete = "SELECT * FROM " + tableName + " ORDER BY " + th[0] + " DESC LIMIT 1";
 
 	public Ajouter(DefaultTableModel model, String tableName, String[] th) {
 		super(model, tableName, th);

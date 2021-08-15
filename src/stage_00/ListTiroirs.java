@@ -1,9 +1,5 @@
 package stage_00;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import org.w3c.dom.Element;
@@ -18,7 +14,7 @@ public class ListTiroirs extends List {
 	public void btnClicked(NodeList Node, int index, String nom, JFrame previousFrame) {
 		Element nxtNode = (Element) Node.item(index);
 		this.setVisible(false);
-		List window = new ListSubTiroirs(nxtNode, this.emplacement + "/" + nom, "sub_tiroir", previousFrame, idUser);
+		List window = new ListSousTiroirs(nxtNode, this.emplacement + "/" + nom, "sous_tiroir", previousFrame, idUser);
 		window.afficher();
 	}
 }
