@@ -11,8 +11,8 @@ public class DB {
 	public static void demarrer() {
         try {
         	Class.forName("com.mysql.cj.jdbc.Driver");
-//        	Connection con = DriverManager.getConnection("jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11430429","sql11430429","VXBwZ1LFny");
-        	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/esto_magasin","root","");
+        	Connection con = DriverManager.getConnection("jdbc:mysql://remotemysql.com:3306/X4XBfk81Qq","X4XBfk81Qq","mJ4yCE4kne");
+//        	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/esto_magasin","root","");
         	stmt = con.createStatement();
         } catch(ClassNotFoundException ex) {
         	Util.afficherErreur("Erreur lors de chargement de drive: " + ex.getMessage());

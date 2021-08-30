@@ -61,7 +61,7 @@ public class SeConnecter {
         				int idUser = Integer.parseInt(rs.getString(1));
         				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         				DocumentBuilder builder = factory.newDocumentBuilder();
-        				Document doc = builder.parse("data.xml");
+        				Document doc = builder.parse("config.xml");
         				Element magasin = (Element) doc.getElementsByTagName("magasin").item(0);
         				List window = new ListCasiers(magasin, "List Des Casiers", "casier", idUser);
         				window.afficher();        				

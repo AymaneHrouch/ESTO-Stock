@@ -67,7 +67,7 @@
          <nom></nom>
          <sous_tiroir>
             <nom></nom>
-            <type>Les circuits intégrés 74XX</type>
+            <type>Les circuits intégrés 74XX hhh</type>
             <table>
                <nom>casier6</nom>
                <colonnes>
@@ -106,7 +106,7 @@
          <nom>Tiroir N 3,4,5,6</nom>
          <sous_tiroir>
             <nom></nom>
-            <type></type>
+            <type>Les circuits intégres 40XX&amp;MCXX</type>
             <table>
                <nom>casier_7_tiroirs_3_4_5_6</nom>
                <colonnes>
